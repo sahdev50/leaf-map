@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
+import customMarker from "../../public/custom-marker.png"
+
 const LeafMap = () => {
   
     const mapRef = useRef(null);
@@ -11,6 +13,13 @@ const LeafMap = () => {
       longitude:null,
       granted:false
     })
+
+    const customIcon = new L.Icon({
+      iconUrl: "../../public/custom-marker.png",
+      iconSize: [30, 45],
+      iconAnchor: [20, 40],
+      popupAnchor: [0, -40],
+    });
 
     var options = {
         enableHighAccuracy: false,
@@ -68,7 +77,7 @@ const LeafMap = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-              <Marker position={[location.latitude, location.longitude]}>
+              <Marker position={[location.latitude, location.longitude]} icon={customIcon} >
                   <Popup>
                       {
                         location.granted ? "this is your current location not accurate enough" : "this is sample location"
