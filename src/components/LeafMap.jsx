@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import customMarker from "../../public/custom-marker.png"
+import customMarker from "../assets/custom-marker.png"
 
 const LeafMap = () => {
   
@@ -15,7 +15,7 @@ const LeafMap = () => {
     })
 
     const customIcon = new L.Icon({
-      iconUrl: "../../public/custom-marker.png",
+      iconUrl: customMarker,
       iconSize: [30, 45],
       iconAnchor: [20, 40],
       popupAnchor: [0, -40],
